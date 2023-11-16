@@ -67,7 +67,6 @@ pool.query(queries.getStudentById, [id], (error, results) => {
         pool.query(queries.updateStudent, [name, id], (error, results) => {
             if(error) throw error;
             res.status(200).send("Student updated successfully");
-            console.log("Successfully created")
         });
     })
 }
