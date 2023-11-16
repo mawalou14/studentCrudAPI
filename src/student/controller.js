@@ -17,7 +17,7 @@ const getStudentById = (req, res) => {
     })
 }
 
-const addStudents = (req, res) => {
+const addStudent = (req, res) => {
     const { name, email, age, dob } = req.body;
 
     // check if email exist
@@ -27,10 +27,11 @@ const addStudents = (req, res) => {
         }
 
         // Add Student to DB
-        pool.query(queries.addStudent, [name, email, age, dob], (error, results) => {
+        pool.query(queries.addStudent, 
+            [name, email, age, dob], 
+            (error, results) => {
             if(error) throw error;
             res.status(201).send("Student Created Successfully!");
-            console.log("Student has been created successfully");
         });
     });
 }
@@ -38,5 +39,5 @@ const addStudents = (req, res) => {
 module.exports = {
     getStudents,
     getStudentById,
-    addStudents,
+    addStudent,
 }
