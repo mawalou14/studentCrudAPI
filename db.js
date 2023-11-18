@@ -10,3 +10,5 @@ const pool = new Pool({
 
 module.exports = pool;
 
+console.log("Here is the file with th db connection");
+
